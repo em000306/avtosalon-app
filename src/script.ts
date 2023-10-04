@@ -1,20 +1,25 @@
 import './style.scss';
 
 import { Component } from './Abstract/Component';
-import './style.scss';
+import { Header } from './Common/Header';
+import { Footer } from './Common/Footer';
+import { MainPage } from './Pages/MainPage';
 
 const body = document.body;
 
-const btn1 = new Component(body, 'input', ["btnspace"], null, ["type", "value"], ["button", "Отобразить"]);
-
-const btn2 = new Component(body, 'input', ["btnspace"], null, ["type", "value"], ["button", "Удалить"]);
-
-const prg = new Component(body, 'p', null, 'Smile Smile Smile');
-
-btn2.root.onclick = () => {
-  prg.remove();
+class App {
+  constructor(parrent: HTMLElement) {
+    const wrap = new Component(body, 'div', ["wrapper"]);
+    new Header(wrap.root);
+    new MainPage(wrap.root);
+    new Footer(wrap.root);
+    
+  }
 }
 
-btn1.root.onclick = () => {
-  prg.render();
-}
+    declare global {
+      interface Window {
+        app: App;
+      }
+    }
+    window.app = new App(document.body);

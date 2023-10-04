@@ -1,0 +1,34 @@
+.login-img {
+   width: 35px;
+   height: 35px;
+}
+
+.header {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.login {
+   display: flex;
+   align-items: center;
+}
+
+.h1 {
+   color: black;
+}
+
+.header__inner {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   a {text-align: center;
+      font-family: Oswald;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 100%; /* 25px */
+      letter-spacing: 1.25px;}
+}
+
+.h1_header {
+   padding-left: 30px;
+}
