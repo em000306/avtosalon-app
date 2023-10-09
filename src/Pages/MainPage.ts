@@ -10,6 +10,7 @@ export class MainPage extends Component {
       new Component(info.root, 'h1', ["h1", 'info__fon'], 'PARKING');
       new Component(info.root, 'h3', ['info__fon'], 'car showroom');
       new Component(info.root, 'p', ["info__text"], "PARKING brings sincerity and originality to all customers by providing them with the most exotic and luxury cars available on the market.")
-      new Component(info.root, 'input', ["main__page-btn"], null, ["type", "value"], ["button", "View all cars"])
+      const perehod = new Component (info.root, "a", null, null, ["href"], ["#catalog"])
+      new Component(perehod.root, 'input', ["main__page-btn"], null, ["type", "value"], ["button", "View all cars"])
    }
 }
