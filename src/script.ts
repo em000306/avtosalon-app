@@ -11,8 +11,12 @@ import { Card } from './Pages/Card';
 import { Catalog } from './Pages/Catalog';
 import { Statistic } from './Pages/Statistic';
 import { Testdrive } from './Pages/Testdrive';
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../configFB";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const body = document.body;
+initializeApp(firebaseConfig);
 
 class App {
   constructor(parrent: HTMLElement) {
@@ -39,4 +43,8 @@ class App {
         app: App;
       }
     }
-    window.app = new App(document.body);
+    const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (!window.app) window.app = new App(document.body); 
+}
+)

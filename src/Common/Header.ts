@@ -9,7 +9,7 @@ export class Header extends Component {
     const logo = new Component(header__inner.root, 'a', ["header__logo"], null, ["href"], ["#"]);
     new Component(logo.root, 'img', ["logo"], null, ["src", "alt"], ["./assets/icon.png", "person"]);
     new Component(header__inner.root, 'h1', ["h1", "h1_header"], 'PARKING');
-    const login = new Component(header__inner.root, 'a', ["login"], null, ["href"], ["#authorization"]);
+    const login = new Component(header__inner.root, 'a', ["login"], null, ["href"], ["#account"]);
     new Component (login.root, 'h3', ["h3"], "Log in");
     new Component(login.root, 'img', ["login-img"], null, ["src", "alt"], ["./assets/account.png", "person"]);
    }
