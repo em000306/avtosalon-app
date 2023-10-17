@@ -1,7 +1,8 @@
 import { Component } from "../Abstract/Component";
+import { TServices } from "../Abstract/Type";
 
 export class MainPage extends Component {
-   constructor(parrent: HTMLElement) {
+   constructor(parrent: HTMLElement,private services:TServices) {
       super(parrent, "div", ["mainpage"]);
       const mainpage = new Component(this.root, 'div', ["mainpage"]);
       const container = new Component(mainpage.root, 'div', ["container"]);

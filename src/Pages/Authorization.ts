@@ -1,11 +1,12 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { Component } from "../Abstract/Component";
+import { TServices } from "../Abstract/Type";
 
 export class Authorization extends Component {
   regButton: Component;
   outButton: Component;
   
-   constructor(parrent: HTMLElement) {
+   constructor(parrent: HTMLElement, private services:TServices) {
       super(parrent, "div", ["authorization"]);
       const container = new Component(this.root, 'div', ["container"]);    
       const fon = new Component (container.root, 'img', ["fon"], null, ["src", "alt"], ["./assets/lambo.png", "fon"]);
@@ -18,13 +19,12 @@ export class Authorization extends Component {
       const auth = getAuth();
       this.regButton = new Component(author.root, 'input', ["auth__btn"], null, ["type", "value"], ["button", "Log in using Google"]);
     this.regButton.root.onclick = () => {
-      this.authWidthGoogle();
-      console.log('lol');
+      this.services.authService.authWidthGoogle();
     }
 
     this.outButton = new Component(container.root, 'input', ["auth__btn"], null, ["type", "value"], ["button", " Log out"]);
     this.outButton.root.onclick = () => {
-      this.outFromGoogle();
+      this.services.authService.outFromGoogle();
     }
     const user = auth.currentUser;
     if (user) {
@@ -36,31 +36,9 @@ export class Authorization extends Component {
 
   }
 
-  authWidthGoogle(): void {
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then(() => {
-        this.toggleButton(true);
-        window.location.reload();
-      })
-      .catch(() => {
-        console.log('bad');
-      });
-  }
 
-  outFromGoogle(): void {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-       this.toggleButton(false);
-       console.log('good');
-       window.location.reload();
-      })
-      .catch(() => {
-        console.log('bad');
-      });
-  }
+
+ 
 
   toggleButton(isAuthUser: boolean): void {
     if (isAuthUser) {
