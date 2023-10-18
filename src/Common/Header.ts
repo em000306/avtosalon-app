@@ -23,7 +23,7 @@ export class Header extends Component {
     // if (user) { 
     //   output.remove();  
     //   input.render(); 
-    //   console.log('lox')  
+    //   console.log('lala')  
     // }
     // else{  
     //   output.render();
