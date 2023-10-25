@@ -19,18 +19,28 @@ export class Router {
 
     const auth = getAuth();
     const user = auth.currentUser;
-    console.log(auth)
+    console.log(user)
+
 
     if (url === 'account' && !user) {
-      
       this.links['#authorization'].render();
-    } else if(url === 'account'&& auth.currentUser?.email===this.services.logicService.emailAdmin && user){
-      
+    } else if(url==='account'&& user?.email==='em000306@g.bstu.by'){
       this.links['#statistic'].render();
+    }else if(url==='statistic'&& user?.email!='em000306@g.bstu.by'){
+      this.links['#account'].render();
+    }else if(url === 'statistic' && !user) {
+      this.links['#authorization'].render();
     }
     else{
       this.links['#' + url].render();
     }
+    // else{
+      
+    //   if(url==='account'&& user.email!='em000306@g.bstu.by'){
+    //     this.links['#authorization'].render();
+    //   }else      {this.links['#' + url].render();}
+    // }
+    
     
   }
 }
