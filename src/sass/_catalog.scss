@@ -1,0 +1,59 @@
+.cart-img{
+   width: 200px;
+   height: 200px;
+}
+.cart__cars{
+   display: flex;
+   flex-direction: column;
+   // justify-content: space-between;
+   align-items: center;
+}
+.cart-name{
+   width: 200px;
+   text-align: center;
+   margin-top: 10px;
+   height: 50px;
+}
+.cart-price{
+   font-size: 17px;
+}
+.cart-btn{
+   width: 170px;
+   height: 33px;
+   padding: 8px 42px;
+   color: #FFF;
+   text-align: center;
+   font-family: Oswald;
+   font-size: 16px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 100%; /* 16px */
+   letter-spacing: 0.8px;
+   background-color: #851E21;
+   border-radius: 20px;
+   margin-top: 10px;
+}
+.cart{
+   padding: 20px;
+   margin: 50px;
+   height: 350px;
+   background: white;
+}
+.cart__cars-inner{
+   display: flex;
+   flex-wrap: wrap;
+}
+
+
+
+
+
+//catalog
+.catalog{
+   background: black;
+}
+.catalog__title{
+   color: white;
+   padding-top: 30px;
+
+}

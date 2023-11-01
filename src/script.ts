@@ -16,14 +16,18 @@ import { firebaseConfig } from "../configFB";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { LogicService } from './Services/LogicService';
 import { AuthService } from './Services/AuthService';
+import { DBService } from './Services/DBService';
+import { getFirestore } from 'firebase/firestore';
 
 const body = document.body;
 
-initializeApp(firebaseConfig);
+const DBFirestore = initializeApp(firebaseConfig);
+const db = getFirestore(DBFirestore)
 
 const services={
   logicService: new LogicService(),
-  authService: new AuthService()
+  authService: new AuthService(),
+  dbService: new DBService(DBFirestore)
 }
 
 class App {
@@ -54,6 +58,14 @@ class App {
     
     const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
-  if (!window.app) window.app = new App(document.body); 
+  services.authService.user = user;
+  services.dbService
+  .getDataUser(user)
+  .then(()=>{
+    if (!window.app) window.app = new App(document.body); 
+  })
+  .catch(()=>{
+    console.log("error");
+  })
 }
 )
