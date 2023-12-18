@@ -1,0 +1,21 @@
+.card__row {
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.detail-img {
+  width: 500px;
+  height: 500px;
+}
+
+.card__detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail__detail {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}

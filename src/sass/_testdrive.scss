@@ -1,0 +1,57 @@
+.testdrive {
+  background: black;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.testdrive__date {
+  color: white;
+  padding: 5px 20px;
+  border: 1px solid white;
+  cursor: pointer;
+
+  &:hover {
+    color: red;
+    border: 1px solid red;
+  }
+}
+
+.testdrive__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 25px;
+}
+
+.testdrive__dates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+select {
+  background: black;
+  color: white;
+  padding: 10px;
+  font-size: 25px;
+  font-family: Oswald;
+  cursor: pointer;
+}
+
+.testdrive__btn {
+  width: 170px;
+  height: 33px;
+  padding: 8px 42px;
+  color: #FFF;
+  text-align: center;
+  font-family: Oswald;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  /* 16px */
+  letter-spacing: 0.8px;
+  background-color: #851E21;
+  border-radius: 20px;
+}

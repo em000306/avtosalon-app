@@ -22,9 +22,10 @@ import { getFirestore } from 'firebase/firestore';
 const body = document.body;
 
 const DBFirestore = initializeApp(firebaseConfig);
-const db = getFirestore(DBFirestore)
+const db = getFirestore(DBFirestore);
 
-const services={
+
+const services = {
   logicService: new LogicService(),
   authService: new AuthService(),
   dbService: new DBService(DBFirestore)
@@ -33,39 +34,39 @@ const services={
 class App {
   constructor(parrent: HTMLElement) {
     const wrap = new Component(body, 'div', ["wrapper"]);
-    new Header(wrap.root,services);
-    const main = new Component (wrap.root, "main");
+    new Header(wrap.root, services);
+    const main = new Component(wrap.root, "main");
     const links = {
-      "#": new MainPage (main.root,services), 
-      "#account": new Account (main.root,services),
-      "#authorization": new Authorization (main.root,services),
-      "#card": new Card (main.root,services),
-      "#catalog": new Catalog (main.root,services),
-      "#statistic": new Statistic (main.root,services),
-      "#testdrive": new Testdrive (main.root,services),
+      "#": new MainPage(main.root, services),
+      "#account": new Account(main.root, services),
+      "#authorization": new Authorization(main.root, services),
+      "#card": new Card(main.root, services),
+      "#catalog": new Catalog(main.root, services),
+      "#statistic": new Statistic(main.root, services),
+      "#testdrive": new Testdrive(main.root, services),
     }
-    new Router(links,services);
+    new Router(links, services);
     new Footer(wrap.root);
-    
+
   }
 }
 
-    declare global {
-      interface Window {
-        app: App;
-      }
-    }
-    
-    const auth = getAuth();
+declare global {
+  interface Window {
+    app: App;
+  }
+}
+
+const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   services.authService.user = user;
   services.dbService
-  .getDataUser(user)
-  .then(()=>{
-    if (!window.app) window.app = new App(document.body); 
-  })
-  .catch(()=>{
-    console.log("error");
-  })
+    .getDataUser(user)
+    .then(() => {
+      if (!window.app) window.app = new App(document.body);
+    })
+    .catch(() => {
+      console.log("error");
+    })
 }
 )
