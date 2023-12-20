@@ -27,6 +27,8 @@ export class Testdrive extends Component {
          (imgCar.root as HTMLImageElement).src = this.data.url;
          (imgCar.root as HTMLImageElement).alt = this.data.name;
          nameCar.root.innerHTML = this.data.name;
+         
+         this.divDates.root.innerHTML='';
          this.data.dates.forEach(el => {
             new Component(this.divDates.root, 'option', ["testdrive__date"], `${el.toDate().toLocaleDateString('ru')}`)
          })
